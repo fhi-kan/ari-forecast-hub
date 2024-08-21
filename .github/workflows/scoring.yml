@@ -71,7 +71,7 @@ jobs:
     
     # eventually install additional packages
     - name: Installing python additional packages
-      run: pip install pandas==1.2.5 numpy==1.22.4
+      run: pip install pandas numpy==1.22.4
 
     
     # Run R code to compute scoring and produce an output file (scoring_outfile)
@@ -80,7 +80,7 @@ jobs:
       id: generate_scoring
       run: |
         # call R script from tools
-        Rscript ./tools/R-code/forecast_evaluation.R --hub_path "./repo" --truth_file_name "latest-ARI_incidence.csv" --subfolders "ERVISS"
+        Rscript ./tools/R-code/forecast_evaluation.R --hub_path "./repo" --truth_file_name "latest-ARI_incidence.csv" --subfolders "ERVISS,FluID"
 
     # Do the python manipulations and produce an output file (scoring_file)
     # ------------------------------------------------------------------------
